@@ -24,9 +24,11 @@ module.exports = function longestConsecutiveLength(array) {
     var sequenceLength = [];
     array = ShellSort(array);
     count = 1;
-    for(var i=0; i<array.length; i++){
-        if((array[i]==array[i+1]-1)){
+    for(var i=1; i<array.length; i++){
+        if((array[i]==array[i-1]+1)){
           count++;
+        } else if (array[i] == array[i-1]){
+            continue;
         }
         else if(count!=1){
             sequenceLength.push(count);
